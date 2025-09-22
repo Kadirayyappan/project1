@@ -1,0 +1,16 @@
+trigger:
+- main  # Trigger the pipeline when changes are pushed to the 'main' branch.
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use the latest Ubuntu image for the pipeline.
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'  # Specify the Python version to use (3.x)
+
+- script: |
+    python --version  # Verify Python version.
+    python hello.py   # Run the hello.py script.
+  displayName: 'Run Python script'
+
